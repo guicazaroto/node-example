@@ -24,3 +24,12 @@ export function productFactory(body, id) {
 
   return newProduct
 }
+
+export function productListFactory (productsList, productIndex, newProduct) {
+  productsList[productIndex] = {
+    ...productsList[productIndex], 
+    ...newProduct
+  }
+
+  return [...productsList]
+}

@@ -1,4 +1,9 @@
-import { getProductsData, productFactory, saveProductsData } from './product-data-helpers.js'
+import { 
+  getProductsData, 
+  productFactory, 
+  saveProductsData, 
+  productListFactory 
+} from './product-data-helpers.js'
 
 export function index (_, res) {
   return res.json(getProductsData())
@@ -41,7 +46,7 @@ export function update(req, res) {
   const productsList = getProductsData()
   const productIndex = productsList.findIndex(product => product.id == req.params.id)
   const newProduct = productFactory(req.body, req.params.id)
-  
+
   try {  
     saveProductsData(productListFactory(productsList, productIndex, newProduct))
     
@@ -51,9 +56,3 @@ export function update(req, res) {
   }
 }
 
-function productListFactory (productsList, productIndex, newProduct) {
-  return productsList[productIndex] = {
-    ...productsList[productIndex], 
-    ...newProduct
-  }
-}
