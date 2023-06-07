@@ -6,7 +6,7 @@ import {
 } from './product-data-helpers.js'
 
 export function index (_, res) {
-  return res.json(getProductsData())
+  return res.json({'teste': 'hey gui'})
 }
 
 export function get(req, res) {
