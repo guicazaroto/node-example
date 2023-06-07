@@ -3,7 +3,7 @@ import routes from './routes.js'
 
 const app = express()
 
-app.listen(8000)
+app.listen(3000)
 
 app.use(express.json())
 app.use(routes)

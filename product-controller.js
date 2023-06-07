@@ -56,3 +56,17 @@ export function update(req, res) {
   }
 }
 
+
+export function remove (req, res) {
+  const productsList = getProductsData()
+  const productIndex = productsList.findIndex(product => product.id == req.params.id)
+
+  try {
+    productsList.splice(productIndex, 1)
+    saveProductsData(productsList)
+    
+    res.status(200).json(productsList)
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao criar produto' })
+  }
+}
