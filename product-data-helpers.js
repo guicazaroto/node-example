@@ -1,15 +1,17 @@
 import fs from 'fs'
 
 export function getProductsData() {
-  const products = fs.readFileSync('./lista-de-produtos.json', 'utf-8')
+  const path = path.join(process.cwd(), 'lista-de-produtos.json')
+  const products = fs.readFileSync(path, 'utf-8')
   const data = JSON.parse(products);
 
   return data
 }
 
 export function saveProductsData(data) {
+  const path = path.join(process.cwd(), 'lista-de-produtos.json')
   const stringifyData = JSON.stringify(data)
-  fs.writeFileSync('./lista-de-produtos.json', stringifyData)
+  fs.writeFileSync(path, stringifyData)
 }
 
 export function productFactory(body, id) {
