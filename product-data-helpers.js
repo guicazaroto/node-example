@@ -1,17 +1,17 @@
-import fs from 'fs'
+
+let productsData = [
+  {"id":2,"descricao":"Maionese 250gr","valor":7.2,"marca":"Helmans"},
+  {"id":3,"descricao":"Iogurte Natural 200ml","valor":2.5,"marca":"Itambé"},
+  {"id":4,"descricao":"Batata Maior Palha 300gr","valor":15.2,"marca":"Chipps"},
+  {"id":5,"descricao":"Nescau 400gr","valor":8,"marca":"Nestlé"},
+]
 
 export function getProductsData() {
-  const path = path.join(process.cwd(), 'lista-de-produtos.json')
-  const products = fs.readFileSync(path, 'utf-8')
-  const data = JSON.parse(products);
-
-  return data
+  return productsData
 }
 
 export function saveProductsData(data) {
-  const path = path.join(process.cwd(), 'lista-de-produtos.json')
-  const stringifyData = JSON.stringify(data)
-  fs.writeFileSync(path, stringifyData)
+  productsData = data
 }
 
 export function productFactory(body, id) {

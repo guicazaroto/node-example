@@ -38,6 +38,7 @@ export function create(req, res) {
     res.status(201).json(productsList)
     
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: 'Erro ao criar produto' })
   }
 }
